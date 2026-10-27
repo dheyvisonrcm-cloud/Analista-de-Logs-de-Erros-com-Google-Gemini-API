@@ -9,12 +9,12 @@ if resposta == "sim":
             gasolina = float(input("digite o preço da gasolina:"))
             if gasolina <= 0:
                 print ("preço da gasolina inválido, por favor digite um valor maior que zero.")
-                while True:
-                    gasolina = float(input("digite o preço da gasolina:"))
-                    if gasolina <= 0:
+            while True:
+                gasolina = float(input("digite o preço da gasolina:"))
+                if gasolina <= 0:
                         print ("preço da gasolina inválido, por favor digite um valor maior que zero.")
                         continue
-                    else:
+                else:
                         break
         elif gasolina > 0:
             pass
@@ -68,8 +68,8 @@ if resposta == "sim":
         print ("o álcool é mais vantajoso")
     elif resultado > 0.7:
         print ("a gasolina é mais vantajosa")
-        resposta = input ("gostaria de realizar uma nova comparação? digite sim para continuar ou não para sair:")
-        if resposta == "sim":
+    resposta = input ("gostaria de realizar uma nova comparação? digite sim para continuar ou não para sair:")
+    if resposta == "sim":
             while True:
                 gasolina = float(input("digite o preço da gasolina:"))
                 if gasolina <= 0:
@@ -77,9 +77,9 @@ if resposta == "sim":
                     continue
                 else:
                     break
-        elif resposta == "não":
+    elif resposta == "não":
             print ("ok")
-        elif resposta != "sim" and resposta != "não":
+    elif resposta != "sim" and resposta != "não":
             print ("resposta inválida:")
             resposta = input ("por favor digite sim ou não:")
             if resposta == "sim":
