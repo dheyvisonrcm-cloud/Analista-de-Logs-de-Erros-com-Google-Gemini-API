@@ -14,7 +14,7 @@ MODELO = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 client = genai.Client(
     api_key=api_key,
-    http_options=types.HttpOptions(timeout=120_000),  # 120s, em milissegundos
+    http_options=types.HttpOptions(timeout=120_000),
 )
 
 
