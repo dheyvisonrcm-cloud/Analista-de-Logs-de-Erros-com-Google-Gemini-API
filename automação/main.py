@@ -34,10 +34,10 @@ def analisar_log(caminho_arquivo):
         return
 
     trecho_log = ler_final_do_arquivo(caminho_arquivo)
-    print(f"📄 Arquivo lido: {os.path.abspath(caminho_arquivo)} ({len(trecho_log)} caracteres)\n")
+    print(f" Arquivo lido: {os.path.abspath(caminho_arquivo)} ({len(trecho_log)} caracteres)\n")
 
     if not trecho_log.strip():
-        print("⚠️ O arquivo de log está vazio. Nada para analisar.")
+        print(" O arquivo de log está vazio. Nada para analisar.")
         return
 
     prompt = f"""
@@ -56,7 +56,7 @@ def analisar_log(caminho_arquivo):
 Logs:
 """
 
-    print(f"🤖 Enviando logs para a IA analisar ({MODELO})...\n")
+    print(f" Enviando logs para a IA analisar ({MODELO})...\n")
 
     max_tentativas = 3
     for tentativa in range(1, max_tentativas + 1):
@@ -71,7 +71,7 @@ Logs:
             )
             texto = resposta.text
             if not texto:
-                print("⚠️ A resposta veio sem texto (possível bloqueio de segurança).")
+                print(" A resposta veio sem texto (possível bloqueio de segurança).")
                 print(resposta)
                 return
 
@@ -83,13 +83,13 @@ Logs:
             return
 
         except Exception as e:
-            print(f"⚠️ Falha na tentativa {tentativa}/{max_tentativas}: {type(e).__name__}: {e}")
+            print(f" Falha na tentativa {tentativa}/{max_tentativas}: {type(e).__name__}: {e}")
             if tentativa < max_tentativas:
                 espera = 2 ** tentativa
                 print(f"   Aguardando {espera}s...\n")
                 time.sleep(espera)
 
-    print("❌ Todas as tentativas falharam.")
+    print(" Todas as tentativas falharam.")
 
 
 if __name__ == "__main__":
